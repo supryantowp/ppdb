@@ -1,47 +1,46 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<div class="card">
+    <div class="card-body">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div class="p-3">
+            <h4 class="text-muted font-18 mb-3 text-center">Ubah Password</h4>
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
             </div>
+            @endif
+
+            <form class="form-horizontal m-t-30" action="{{route('password.email')}}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="useremail">Email</label>
+                    <input type="email" class="form-control" id="useremail" placeholder="Masukan email" name="email"
+                        value="{{old('email')}}">
+
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="form-group row m-t-20">
+                    <div class="col-12 text-right">
+                        <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Reset</button>
+                    </div>
+                </div>
+
+            </form>
         </div>
+
     </div>
+</div>
+
+<div class="m-t-40 text-center">
+    <p>Tidak punya akun ? <a href="{{route('register')}}" class="text-primary"> Daftar Sekarang </a> </p>
+    <p>© {{date('Y')}} {{config('app.name')}}. Crafted with <i class="mdi mdi-heart text-danger"></i> by
+        Supryanto</p>
 </div>
 @endsection
