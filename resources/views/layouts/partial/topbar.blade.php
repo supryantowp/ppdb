@@ -2,7 +2,7 @@
 
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="index.html" class="logo">
+        <a href="{{route('home')}}" class="logo">
             <span>
                 <img src="{{asset('assets/dashboard/assets/images/logo-light.png')}}" alt="" height="18">
             </span>
