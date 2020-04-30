@@ -23,22 +23,23 @@
 }
 
 .fc-day {
-  background: $white;
+  background: $dark;
 }
 
 .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active,
 .fc-toolbar button:focus, .fc-toolbar button:hover,
 .fc-toolbar .ui-state-hover {
   z-index: 0;
+  background-color: lighten($dark, 6%);
 }
 
 .fc-widget-header {
-  border: 1px solid #d5d5d5;
-  background-color: $gray-100;
+  border: 1px solid rgba($white, 0.1) !important;
+  background-color: lighten($dark, 6%);
 }
 
 .fc-widget-content {
-  border: 1px solid #d5d5d5;
+  border: 1px solid rgba($white, 0.1) !important;
 }
 
 .fc {
@@ -52,16 +53,16 @@
 }
 
 .fc-button {
-  background: $white;
-  border: 1px solid #d5d5d5;
-  color: #555555;
+  background: lighten($dark, 4%);
+  border: 1px solid rgba($white, 0.1);
+  color: $white;
   text-transform: capitalize;
   outline: none;
 }
 
 .fc-state-active, .fc-state-down {
   box-shadow: none;
-  background-color: $primary;
+  background-color: $primary !important;
   border-color: $primary;
   color: $white;
 }
@@ -85,7 +86,7 @@
 
 .fc-unthemed {
   .fc-today {
-    background: $white;
+    background: lighten($dark, 4%);
   }
 }
 
@@ -99,9 +100,9 @@
   text-align: center;
   background-color: $primary;
   color: $white !important;
-  .fc-time {
+  .fc-time{
     font-weight: 500;
-}
+  }
 }
 
 .external-event {

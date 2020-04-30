@@ -73,8 +73,8 @@
                                 <li><a href="{{url('/')}}">Home</a></li>
                                 <li><a href="{{route('materi')}}">Materi</a></li>
                                 <li><a href="{{route('guru')}}">Guru</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{route('blog')}}">Blog</a></li>
+                                <li><a href="{{route('contact')}}">Contact</a></li>
                             </ul>
 
                             <!-- Search Button -->
@@ -101,7 +101,16 @@
                                             aria-expanded="false">{{Str::title(auth()->user()->name)}}</a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userName">
                                             <a class="dropdown-item" href="#">Profile</a>
-                                            <a class="dropdown-item" href="{{route('home')}}">Dashboard</a>
+
+                                            @role('admin')
+                                            <a class="dropdown-item" href="{{route('admin.index')}}">Dashboard</a>
+                                            @endrole
+
+                                            @role('calon-siswa')
+                                            <a class="dropdown-item" href="{{route('calon-siswa.index')}}">Dashboard</a>
+                                            @endrole
+
+
                                             <a class="dropdown-item" href="#">Account Info</a>
                                             <a class="dropdown-item" href="#" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">Logout</a>

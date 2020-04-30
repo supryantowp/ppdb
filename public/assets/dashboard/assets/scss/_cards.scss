@@ -7,6 +7,7 @@
   border: none;
   box-shadow: $shadow;
   margin-bottom: 30px;
+  background: $dark;
 }
 
 @media (min-width: 576px) {
@@ -19,4 +20,10 @@
 
 .card-columns .card {
   margin-bottom: 30px;
+}
+
+.list-group-flush{
+  .list-group-item{
+    background: $dark;
+  }
 }

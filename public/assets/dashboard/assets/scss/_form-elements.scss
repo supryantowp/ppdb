@@ -8,10 +8,30 @@ label {
 
 .form-control {
   font-size: $base-font;
+  color: rgba($white, 0.7) !important;
+  background: lighten($dark, 4%);
+  border-color: rgba($white, 0.07);
   &:focus {
-    border-color: $primary;
     box-shadow: none;
+    background: lighten($dark, 4%);
+    border-color: rgba($white, 0.1);
   }
+}
+
+.form-control::-webkit-input-placeholder {
+  color: rgba($white, 0.7);
+}
+
+.form-control:-moz-placeholder {
+  color: rgba($white, 0.7);
+}
+
+.form-control::-moz-placeholder {
+  color: rgba($white, 0.7);
+}
+
+.form-control:-ms-input-placeholder {
+  color: rgba($white, 0.7);
 }
 
 .form-control-sm {
@@ -55,4 +75,17 @@ label {
 
 .input-group-text{
   font-size: $base-font;
+}
+
+.custom-select{
+  color: rgba($white, 0.7) !important;
+  background: lighten($dark, 4%);
+  border-color: rgba($white, 0.07);
+}
+
+.custom-control-label{
+  &:before{
+    background-color: lighten($dark, 4%);
+    border-color: lighten($dark, 6%);
+  }
 }

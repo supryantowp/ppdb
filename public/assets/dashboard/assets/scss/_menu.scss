@@ -66,7 +66,7 @@
 }
 
 .navbar-custom {
-  background-color: $white;
+  background-color: $primary;
   border-radius: 0;
   margin-bottom: 0;
   padding: 0 10px 0 0;
@@ -83,6 +83,13 @@
       &:after {
         content: initial;
       }
+    }
+  }
+  .dropdown{
+    .btn.btn-light{
+      color: $white;
+      background-color: rgba($white, 0.2);
+      border-color: rgba($white, 0.2)
     }
   }
 }
@@ -135,11 +142,11 @@
 
 .button-menu-mobile {
   border: none;
-  color: lighten($dark,20%);
+  color: rgba($white,0.7);
   display: inline-block;
   height: 70px;
   width: 60px;
-  background-color: $white;
+  background-color: $primary;
   font-size: 24px;
 }
 
@@ -205,7 +212,6 @@
   text-transform: uppercase;
   color:lighten($leftbar-menu-color,15%);
 }
-
 
 .enlarged {
   .slimScrollDiv{
@@ -372,14 +378,12 @@
 
 /* Footer */
 .footer {
-  border-top: 1px solid rgba($muted,0.2);
   bottom: 0;
   text-align: center !important;
   padding: 19px 30px 20px;
   position: absolute;
   right: 0;
   left: 240px;
-  color: $muted;
 }
 
 /* Notification */
@@ -392,7 +396,7 @@
   .noti-icon {
       font-size: 20px;
       vertical-align: middle;
-      color: $dark;
+      color: rgba($white, 0.7);
   }
   .noti-icon-badge {
       display: inline-block;
@@ -409,11 +413,11 @@
           text-align: center;
           margin-right: 10px;
           border-radius: 50%;
-          color: $dark;
+          color: $white;
           i {
               height: 32px;
               width: 32px;
-              background-color: $white;
+              background-color: $dark;
               border-radius: 50%;
               line-height: 30px;
               margin-top: 2px;
@@ -432,7 +436,8 @@
                 text-overflow: ellipsis;
                 white-space: normal;
                 font-size: 12px;
-                font-weight: normal;    
+                font-weight: normal;
+                color: rgba($white, 0.5) !important;    
             }
       }
   }
@@ -482,13 +487,14 @@
   position: relative;
   .form-control,
   .form-control:focus {
-      border: 1px solid $gray-200;
+      border: 1px solid rgba($white, 0.1);
       font-size: 13px;
       height: 34px;
       padding-left: 18px;
       padding-right: 40px;
       margin-right: 20px;
-      background: $gray-100;
+      background: rgba($white, 0.1);
+      color: rgba($white, 0.7);
       box-shadow: none;
       border-radius: 30px;
       width: 200px;
@@ -498,7 +504,7 @@
       top: 8px;
       right: 30px;
       display: block;
-      color: $muted;
+      color: rgba($white, 0.7);
       font-size: 11px;
       border: none;
       background-color: transparent;
@@ -515,22 +521,23 @@
 .page-title-box {
   padding: 20px 0px;
   .page-title {
-      font-size: 18px;
-      margin: 0;
-      line-height: 30px;
+    font-size: 18px;
+    margin: 0;
+    line-height: 30px;
+    color: $white;
   }
   .breadcrumb {
       padding: 4px 0;
       background-color: transparent;
       margin-bottom: 0;
       a {
-          color: $dark;
+          color: rgba($white, 0.5);
           &:hover {
-              color: rgba($dark, 0.9);
+              color: rgba($white, 0.7);
           }
       }
       .active {
-          color: rgba($dark, 0.7);
+          color: rgba($white, 0.7);
       }
   }
   .state-information {

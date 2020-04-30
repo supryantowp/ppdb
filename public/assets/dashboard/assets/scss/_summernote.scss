@@ -35,7 +35,7 @@
 .note-editor {
   position: relative;
 
-  .btn-light {
+  .btn-default {
     background-color: transparent;
     border-color: transparent;
   }
@@ -43,12 +43,13 @@
     padding: 8px 12px;
   }
   .note-toolbar {
-    background: lighten($gray-300, 5%);
-    border-bottom: 1px solid $gray-200;
+    background: lighten($dark,4%);
+    border-bottom: 1px solid rgba($white, 0.1);
     margin: 0;
   }
   .note-statusbar {
-    background-color: $white;
+    background-color: lighten($dark,4%) !important;
+    border-color: lighten($dark,4%) !important;
     .note-resizebar {
       border-top: none;
       height: 15px;
@@ -56,9 +57,17 @@
     }
   }
 }
-.note-editor.note-frame {
-  border: 1px solid $gray-200;
-  box-shadow: none;
+.note-editor{
+  &.note-frame {
+    border: 1px solid rgba($white, 0.1);
+    box-shadow: none;
+    .note-editing-area{
+      .note-editable{
+        background: $dark;
+        color: rgba($white, 0.7);
+      }
+    }
+  }
 }
 
 .note-popover {

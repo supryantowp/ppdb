@@ -20,7 +20,7 @@
                 ykeys: ykeys,
                 labels: labels,
                 hideHover: 'auto',
-                gridLineColor: '#eef0f2',
+                gridLineColor: '#323a4e',
                 resize: true, //defaulted to true
                 lineColors: lineColors,
                 lineWidth: 2
@@ -35,7 +35,7 @@
                 xkey: xkey,
                 ykeys: ykeys,
                 labels: labels,
-                gridLineColor: '#eef0f2',
+                gridLineColor: '#323a4e',
                 barSizeRatio: 0.4,
                 resize: true,
                 hideHover: 'auto',
@@ -54,7 +54,7 @@
                 ykeys: ykeys,
                 labels: labels,
                 resize: true,
-                gridLineColor: '#eee',
+                gridLineColor: '#323a4e',
                 hideHover: 'auto',
                 lineColors: lineColors,
                 fillOpacity: .6,
@@ -68,6 +68,8 @@
                 element: element,
                 data: data,
                 resize: true,
+                labelColor: '#fff',
+                backgroundColor: '#2a3142',
                 colors: colors
             });
         },
@@ -83,7 +85,7 @@
                 hideHover: 'auto',
                 barSizeRatio: 0.4,
                 resize: true, //defaulted to true
-                gridLineColor: '#eeeeee',
+                gridLineColor: '#323a4e',
                 barColors: lineColors
             });
         },
@@ -99,7 +101,7 @@
                 {y: '2014', a: 105, b: 100, c: 80},
                 {y: '2015', a: 250, b: 150, c: 200}
             ];
-            this.createLineChart('morris-line-example', $data, 'y', ['a', 'b', 'c'], ['Activated', 'Pending', 'Deactivated'], ['#ccc', '#3eb7ba', '#36508b']);
+            this.createLineChart('morris-line-example', $data, 'y', ['a', 'b', 'c'], ['Activated', 'Pending', 'Deactivated'], ['#ccc', '#7a6fbe', '#28bbe3']);
 
             //creating bar chart
             var $barData = [
@@ -112,7 +114,7 @@
                 {y: '2015', a: 100, b: 90},
                 {y: '2016', a: 90, b: 75}
             ];
-            this.createBarChart('morris-bar-example', $barData, 'y', ['a', 'b'], ['Series A', 'Series B'], ['#3eb7ba','#36508b']);
+            this.createBarChart('morris-bar-example', $barData, 'y', ['a', 'b'], ['Series A', 'Series B'], ['#7a6fbe','#28bbe3']);
 
             //creating area chart
             var $areaData = [
@@ -124,7 +126,7 @@
                 {y: '2012', a: 75, b: 240, c:120},
                 {y: '2013', a: 30, b: 30, c:30}
             ];
-            this.createAreaChart('morris-area-example', 0, 0, $areaData, 'y', ['a', 'b', 'c'], ['Series A', 'Series B', 'Series C'], ['#ccc', '#36508b', '#3eb7ba']);
+            this.createAreaChart('morris-area-example', 0, 0, $areaData, 'y', ['a', 'b', 'c'], ['Series A', 'Series B', 'Series C'], ['#ccc', '#7a6fbe', '#28bbe3']);
 
             //creating donut chart
             var $donutData = [
@@ -132,7 +134,7 @@
                 {label: "In-Store Sales", value: 30},
                 {label: "Mail-Order Sales", value: 20}
             ];
-            this.createDonutChart('morris-donut-example', $donutData, ['#f0f1f4', '#3eb7ba', '#36508b']);
+            this.createDonutChart('morris-donut-example', $donutData, ['#f0f1f4', '#7a6fbe', '#28bbe3']);
 
             //creating Stacked chart
             var $stckedData = [
@@ -149,7 +151,7 @@
                 {y: '2015', a: 100, b: 90},
                 {y: '2016', a: 80, b: 65}
             ];
-            this.createStackedChart('morris-bar-stacked', $stckedData, 'y', ['a', 'b'], ['Series A', 'Series B'], ['#36508b', '#f0f1f4']);
+            this.createStackedChart('morris-bar-stacked', $stckedData, 'y', ['a', 'b'], ['Series A', 'Series B'], ['#7a6fbe', '#f0f1f4']);
 
         },
         //init

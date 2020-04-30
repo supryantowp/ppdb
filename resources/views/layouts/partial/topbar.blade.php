@@ -77,8 +77,7 @@
                 <div class="dropdown notification-list nav-pro-img">
                     <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="{{asset('assets/dashboard/assets/images/users/user-4.jpg')}}" alt="user"
-                            class="rounded-circle">
+                        <img src="{{asset('assets/front/img/bg-img/t1.png')}}" alt="user" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                         <!-- item-->

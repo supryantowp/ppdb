@@ -11,11 +11,16 @@ th {
 
 .table-hover tbody tr:hover,.table-striped tbody tr:nth-of-type(odd),
 .thead-default th{
-  background-color: $gray-100;
+  background-color: lighten($dark, 3%);
+  color: $white;
 }
 
-.table td, .table th{
-  vertical-align: middle;
+.table {
+  color: $gray-300;
+  td, th{
+    vertical-align: middle;
+    border-color: rgba($white, 0.05) !important;
+  }
 }
 
 .table-vertical {
@@ -28,6 +33,13 @@ th {
   th, td {
     padding: .3rem !important;
   }
+}
+
+
+// datatable
+
+.dataTable{
+  border-color: rgba($white, 0.07);
 }
 
 /* == Responsive Table ==*/
@@ -139,9 +151,23 @@ table.focus-on {
       }
     }
   }
+
+  .dropdown-menu{
+    li{
+      &.checkbox-row{
+        color: $gray-400;
+        &:hover{
+          color: $gray-400;
+          background-color: lighten($dark, 4%);
+        }
+      }
+    }
+  }
+
   .fixed-solution{
     .sticky-table-header {
       top: 70px !important;
+      background-color: $primary;
     }
   }
 }
@@ -150,7 +176,7 @@ table.focus-on {
   .table-rep-plugin { 
     .fixed-solution{
       .sticky-table-header {
-      top: 145px !important;
+        top: 145px !important;
       }
     }
   }

@@ -20,4 +20,14 @@ class FrontController extends Controller
     {
         return view('front.guru');
     }
+
+    public function blog()
+    {
+        return 'blog';
+    }
+
+    public function contact()
+    {
+        return 'contact';
+    }
 }

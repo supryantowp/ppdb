@@ -1,11 +1,11 @@
-/* =============
-   Tabs & Accordions
-============= */
-
 .nav-tabs,.nav-pills {
   .nav-link {
-    color: $dark;
+    color: rgba($white, 0.7);
     font-weight: 500;
+    &.active{
+      background: lighten($dark, 4%);
+      color: rgba($white, 0.7);
+    }
   }
 }
 
@@ -18,6 +18,9 @@
     .nav-link {
       border: none !important;
       font-weight: 500;
+      &.active{
+        background: lighten($dark, 4%);
+      }
     }
   }
 }
@@ -52,6 +55,10 @@
 
 #accordion {
   .card-header{
-    border-bottom: 1px solid rgba($dark, 0.05)
+    background: lighten($dark, 4%);
+    border-bottom: 1px solid rgba($dark, 0.05);
+    a{
+      color: rgba($white, 0.7);
+    }
   }
 }

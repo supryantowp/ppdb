@@ -22,8 +22,8 @@
                 type: 'bar',
                 colors: {
                     Desktop: '#f0f1f4',
-                    Mobile: '#36508b',
-                    Tablet: '#3eb7ba'
+                    Mobile: '#7a6fbe',
+                    Tablet: '#28bbe3'
                 }
             }
         });
@@ -48,10 +48,10 @@
                 },
                 colors: {
                     SonyVaio: '#f0f1f4',
-                    iMacs: '#3eb7ba',
+                    iMacs: '#7a6fbe',
                     Tablets: '#2f8ee0',
                     iPhones: '#fb4',
-                    Macbooks: '#36508b'
+                    Macbooks: '#28bbe3'
                 },
                 groups: [
                     ['SonyVaio','iMacs']
@@ -77,7 +77,7 @@
                 },
                 colors: {
                     Revenue: '#f0f1f4',
-                    Pageview: '#36508b'
+                    Pageview: '#28bbe3'
 	            }
             },
             axis: {
@@ -103,7 +103,7 @@
                 },
                 colors: {
                     Revenue: '#f0f1f4',
-                    Pageview: '#3eb7ba'
+                    Pageview: '#28bbe3'
                 }
             }
         });
@@ -128,7 +128,7 @@
 				}
             },
             color: {
-            	pattern: ['#f0f1f4', '#3eb7ba', '#28bbe3', '#36508b']
+            	pattern: ['#f0f1f4', '#7a6fbe', '#28bbe3', '#2f8ee0']
             }
         });
         
@@ -145,7 +145,7 @@
                 type : 'pie'
             },
             color: {
-                pattern: ['#f0f1f4', '#3eb7ba', '#28bbe3', '#36508b']
+                pattern: ['#f0f1f4', '#7a6fbe', '#28bbe3', '#2f8ee0']
             },
             pie: {
 		        label: {

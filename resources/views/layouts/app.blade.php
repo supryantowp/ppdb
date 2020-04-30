@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
 
     @include('layouts.partial.libs_css')
+
+    @stack('css')
 </head>
 
 <body>
@@ -63,6 +65,8 @@
 
     <!-- App js -->
     <script src="{{asset('assets/dashboard/assets/js/app.js')}}"></script>
+
+    @stack('javascript')
 
 </body>
 

@@ -10,7 +10,7 @@
     position: relative;
     padding-bottom: 29px;
     padding-left: 30px;
-    border-left: 2px solid $gray-200;
+    border-left: 2px solid lighten($dark, 5%);
 
     &:last-child {
       border-color: transparent;
@@ -32,7 +32,7 @@
     .feed-item-list{
       padding: 12px 20px;
       border-radius: 7px;
-      background: $gray-100;
+      background: lighten($dark, 3%);
       &::after{
         left: 19px;
         top: 0;
@@ -42,10 +42,10 @@
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-top-color: $gray-100;
+        border-top-color: lighten($dark, 3%);
         border-width: 10px;
         margin-left: -1px;
-        border-right-color: $gray-100;
+        border-right-color: lighten($dark, 3%);
       }
     }
 
@@ -139,7 +139,7 @@
       position: absolute;
       width: 300px;
       height: 3px;
-      background: $gray-200;
+      background: lighten($dark, 4%);
       left: 50%;
       top: 150px;
       transform: translateX(-50%) rotate(35deg)
@@ -151,7 +151,7 @@
       position: absolute;
       width: 300px;
       height: 3px;
-      background: $gray-200;
+      background: lighten($dark, 4%);
       left: 50%;
       top: 150px;
       transform: translateX(-50%) rotate(-35deg)
@@ -170,7 +170,7 @@
   font-size: 20px;
   color: $white;
   background-color: $primary;
-  border: 5px solid $white;
+  border: 5px solid $dark;
 
   i {
     margin-left: 1px;
@@ -191,7 +191,7 @@
 
 .cd-timeline-content {
   border-radius: 5px;
-  background:  $gray-100;
+  background:  lighten($dark, 4%);
   margin-left: 60px;
   padding: 1em;
   position: relative;
@@ -207,7 +207,7 @@
   .cd-read-more {
     background: $primary;
     border-radius: 0.25em;
-    color: white;
+    color: $white;
     display: inline-block;
     float: right;
     font-size: 14px;
@@ -249,7 +249,7 @@
     top: 24px;
     left: 100%;
     border-color: transparent;
-    border-left-color: $gray-100;
+    border-left-color: lighten($dark, 4%);
   }
   .cd-timeline-content .cd-read-more {
     float: left;
@@ -268,7 +268,7 @@
     left: auto;
     right: 100%;
     border-color: transparent;
-    border-right-color: $gray-100;
+    border-right-color: lighten($dark, 4%);
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
     float: right;

@@ -4,7 +4,7 @@
 .email-leftbar {
   width: 230px;
   float: left;
-  background-color: $white;
+  background-color: $dark;
   padding: 20px;
   border-radius: 5px;
 }
@@ -15,8 +15,8 @@
 
 .chat-user-box {
   p.user-title {
-    font-size: 14px;
-    color: $dark;
+    font-size: $base-font;
+    color: $white;
     font-weight: 500;
   }
   p {
@@ -40,7 +40,7 @@
 .mail-list {
   a {
     display: block;
-    color: lighten($dark,5%);
+    color: rgba($white, 0.7);
     font-size: $base-font;
     line-height: 24px;
     padding: 5px;
@@ -65,11 +65,11 @@
     transition-duration: .3s;
 
     a{
-      color: $muted;
+      color: rgba($white, 0.7);
     }
 
     &:hover {
-      background: rgba($muted, 0.08);
+      background: rgba($white, 0.03);
       transition-duration: .05s;
     }
 
@@ -156,10 +156,10 @@
   }
 
   li.unread  {
-    background-color: darken($white,3%);
-    font-weight: 600;
+    background-color: rgba($white, 0.03);
+    font-weight: 500;
     a{
-      color: darken($dark,5%);
+      color: rgba($white, 0.7);
       font-weight: 500;
     }
   }
@@ -196,7 +196,7 @@
         font-family: "Material Design Icons";
         top: 0;
         height: 20px;
-        color: darken($dark,5%);
+        color: rgba($white, 0.7);
         width: 20px;
         position: absolute;
         margin-top: -16px;

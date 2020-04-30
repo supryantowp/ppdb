@@ -10,4 +10,4 @@
 <!--Morris Chart-->
 <script src="{{asset('assets/plugins/morris/morris.min.js')}}"></script>
 <script src="{{asset('assets/plugins/raphael/raphael-min.js')}}"></script>
-<script src="{{asset('assets/dashboard/assets/pages/dashboard.js')}}"></script>
+{{-- <script src="{{asset('assets/dashboard/assets/pages/dashboard.js')}}"></script> --}}

@@ -69,10 +69,10 @@
               yaxis: {
                   min: 0,
                   max: 300,
-                  color: 'rgba(0,0,0,0.1)'
+                  color: 'rgba(255,255,255,0.07)'
               },
               xaxis: {
-                  color: 'rgba(0,0,0,0.1)'
+                  color: 'rgba(255,255,255,0.07)'
               },
               tooltip: true,
               tooltipOpts: {
@@ -198,7 +198,7 @@
 			yaxis : {
 				min : 0,
 				max : 100,
-				color : 'rgba(0,0,0,0.1)'
+				color : 'rgba(255,255,255,0.07)'
 			},
 			xaxis : {
 				show : false
@@ -265,20 +265,20 @@
           var laptops = [[0, 80], [1, 100], [2,60], [3, 120], [4, 140], [5, 100], [6, 105]];
           var tablets = [[0, 20], [1, 80], [2, 70], [3, 140], [4, 250], [5, 80], [6, 200]];
           var plabels = ["Desktops","Laptops","Tablets"];
-          var pcolors = ['#f0f1f4', '#36508b', '#3eb7ba'];
-          var borderColor = '#f5f5f5';
-          var bgColor = '#fff';
+          var pcolors = ['#f0f1f4', '#7a6fbe', '#28bbe3'];
+          var borderColor = '#2a3142';
+          var bgColor = '#2a3142';
           this.createPlotGraph("#website-stats", desktops, laptops, tablets, plabels, pcolors, borderColor, bgColor);
 
           //Pie graph data
           var pielabels = ["Desktops","Laptops","Tablets"];
           var datas = [20,30, 15];
-          var colors = ['#36508b','#3eb7ba', "#ebeff2"];
+          var colors = ['#7a6fbe','#28bbe3', "#ebeff2"];
           this.createPieGraph("#pie-chart #pie-chart-container", pielabels , datas, colors);
 
 
             //real time data representation
-            var plot = this.createRealTimeGraph('#flotRealTime', this.randomData() , ['#36508b']);
+            var plot = this.createRealTimeGraph('#flotRealTime', this.randomData() , ['#28bbe3']);
             plot.draw();
             var $this = this;
             function updatePlot() {
@@ -292,7 +292,7 @@
             //Donut pie graph data
           var donutlabels = ["Desktops","Laptops","Tablets"];
           var donutdatas = [29,20, 18];
-          var donutcolors = ['#f0f1f4', '#3eb7ba', '#36508b'];
+          var donutcolors = ['#f0f1f4', '#7a6fbe', '#28bbe3'];
           this.createDonutGraph("#donut-chart #donut-chart-container", donutlabels , donutdatas, donutcolors);
         },
 
