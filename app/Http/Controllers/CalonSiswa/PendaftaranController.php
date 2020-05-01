@@ -5,6 +5,9 @@ namespace App\Http\Controllers\CalonSiswa;
 use App\AccessMenu;
 use App\DataPpdb;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DataSiswa1Request;
+use App\Http\Requests\DataSiswa2Request;
+use App\Http\Requests\DataSiswa3Request;
 use App\Jurusan;
 use App\PengumumanPpdb;
 use Illuminate\Http\Request;
@@ -41,6 +44,10 @@ class PendaftaranController extends Controller
     public function cetakKelulusan($id)
     {
         $pengumuman = PengumumanPpdb::where('id', $id)->first();
+        if (!$pengumuman) {
+            session()->flash('error', 'pendaftaran kamu belum di verifikasi');
+            return redirect()->back();
+        }
         $pdf = PDF::loadview('calon-siswa.cetak-kelulusan', ['pengumuman' => $pengumuman]);
         return $pdf->download('data kelulusan ' . $pengumuman->data_ppdb->nama_siswa);
     }
@@ -177,7 +184,7 @@ class PendaftaranController extends Controller
         PengumumanPpdb::create($dataPengumuman);
 
         $data = [];
-        $data['user_id']            = auht()->user()->id;
+        $data['user_id']            = auth()->user()->id;
         $data['no_ppdb']            = $no_ppdb;
         $data['nisn']               = $ses->get('nisn');
         $data['no_kk']              = $ses->get('no_kk');
@@ -193,7 +200,7 @@ class PendaftaranController extends Controller
         $data['jumlah_saudara']     = $ses->get('jumlah_saudara');
         $data['hobi']               = $ses->get('hobi');
         $data['cita_cita']          = $ses->get('cita_cita');
-        $data['foto_siswa']         = $ses->get('foto_siswa');
+        $data['foto_siswa']         = $nama_file;
 
         $data['nik_ayah']           = $ses->get('nik_ayah');
         $data['nama_ayah']          = $ses->get('nama_ayah');

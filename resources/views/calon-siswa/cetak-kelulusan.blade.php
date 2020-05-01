@@ -27,7 +27,13 @@
     </div>
 
     <div class="kontent">
+        @if ($pengumuman)
         <h1>{{$pengumuman->status}}</h1>
+
+        @else
+        <h1>Belum di verikasi</h1>
+        @endif
+
     </div>
 </body>
 

@@ -164,4 +164,6 @@
 </script>
 @endif
 
+@include('layouts.partial._alert')
+
 @endpush

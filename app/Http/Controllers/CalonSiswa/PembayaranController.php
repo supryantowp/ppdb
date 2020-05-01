@@ -7,6 +7,7 @@ use App\Bank;
 use App\HargaPpdb;
 use App\HistoryTransaksiPpdb;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TransaksiPpdbRequest;
 use App\TransaksiPpdb;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
