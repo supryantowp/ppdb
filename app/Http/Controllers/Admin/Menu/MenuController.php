@@ -14,7 +14,7 @@ class MenuController extends Controller
 
     public function __construct()
     {
-        $this->menu = AccessMenu::where('role_id', $this->role)->orderBy('id', 'DESC')->get();
+        $this->menu = AccessMenu::where('role_id', $this->role)->orderBy('menu_id', 'ASC')->get();
     }
 
     /**

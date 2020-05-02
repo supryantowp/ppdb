@@ -16,7 +16,7 @@ class AccessMenuController extends Controller
 
     public function __construct()
     {
-        $this->menu = AccessMenu::where('role_id', $this->role)->orderBy('id', 'DESC')->get();
+        $this->menu = AccessMenu::where('role_id', $this->role)->orderBy('menu_id', 'ASC')->get();
     }
 
     /**
@@ -63,7 +63,7 @@ class AccessMenuController extends Controller
         foreach ($accessMenu as $item) {
             if ($item->menu_id == $request->menu) {
                 session()->flash('error', 'Gagal menambah menu!');
-                return redirect()->route('access_menu.index');
+                return redirect()->route('access-menu.index');
             }
         }
 
@@ -73,7 +73,7 @@ class AccessMenuController extends Controller
         ]);
 
         session()->flash('success', 'Sukses menambah Access Menu!');
-        return redirect()->route('access_menu.index');
+        return redirect()->route('access-menu.index');
     }
 
     /**
@@ -122,7 +122,7 @@ class AccessMenuController extends Controller
         foreach ($accessMenu as $item) {
             if ($item->menu_id == $request->menu) {
                 session()->flash('error', 'Menu sudah ada !');
-                return redirect()->route('access_menu.index');
+                return redirect()->route('access-menu.index');
             }
         }
 
@@ -132,7 +132,7 @@ class AccessMenuController extends Controller
         $acMenu->save();
 
         session()->flash('success', 'Sukses menghubah data!');
-        return redirect(route('access_menu.index'));
+        return redirect(route('access-menu.index'));
     }
 
     /**
@@ -147,6 +147,6 @@ class AccessMenuController extends Controller
         $acMenu->delete();
 
         session()->flash('success', 'Berhasil mengahpus data!');
-        return redirect()->route('access_menu.index');
+        return redirect()->route('access-menu.index');
     }
 }

@@ -8,11 +8,18 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    protected $role = 1;
+    public $role = 1;
+    public $menu = '';
+
+    public function __construct()
+    {
+        $this->menu = AccessMenu::where('role_id', $this->role)->orderBy('menu_id', 'ASC')->get();
+    }
+
 
     public function index()
     {
-        $menu = AccessMenu::where('role_id', $this->role)->orderBy('id', 'DESC')->get();
+        $menu = $this->menu;
         return view('admin.index', compact('menu'));
     }
 }

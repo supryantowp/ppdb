@@ -38,7 +38,8 @@
                     <a class="text-info" href="{{route('pengumuman')}}">pengumuman</a>
                 </p>
 
-                <p>Ini nomor pendaftaran kamu <strong>{{$dataPpdb->no_ppdb}}</strong></p>
+                <p>Ini nomor pendaftaran kamu <strong>{{$dataPpdb->no_ppdb}}</strong>.
+                    <strong>{{$dataPpdb->tahun_ajar->title}}</strong> </p>
 
                 <div id="accordion">
                     <div class="card mb-1">

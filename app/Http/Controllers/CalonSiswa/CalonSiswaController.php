@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CalonSiswa;
 use App\AccessMenu;
 use App\DataPpdb;
 use App\Http\Controllers\Controller;
+use App\KuotaJurusan;
 use App\PengumumanPpdb;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,7 @@ class CalonSiswaController extends Controller
         $menu = $this->menu;
         $dataPpdb = DataPpdb::where('user_id', auth()->user()->id)->first();
         $status = $dataPpdb ? PengumumanPpdb::where('no_ppdb', $dataPpdb->no_ppdb)->first() : null;
-        return view('calon-siswa.pengumuman', compact('menu', 'status'));
+        $kuotaJurusan = KuotaJurusan::all();
+        return view('calon-siswa.pengumuman', compact('menu', 'status', 'kuotaJurusan'));
     }
 }

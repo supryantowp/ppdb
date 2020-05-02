@@ -42,6 +42,15 @@
 
                     @csrf
 
+                    <div class="form-group row">
+                        <label class="col-sm-3">Tahun Ajaran</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" value="{{$tahun_ajaran->title}}" readonly>
+                            <input type="hidden" class="form-control" name="tahun_ajaran_id"
+                                value="{{$tahun_ajaran->id}}">
+                        </div>
+                    </div>
+
                     @component('components.form-group')
                     @slot('label', 'Nisn')
                     @slot('type', 'number')

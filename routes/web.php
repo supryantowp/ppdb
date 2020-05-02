@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 // Front
 Route::get('/', 'FrontController@index')->name('home');
+Route::get('/home', 'FrontController@index')->name('home');
 Route::get('/materi', 'FrontController@materi')->name('materi');
 Route::get('/guru', 'FrontController@guru')->name('guru');
 Route::get('/blog', 'FrontController@blog')->name('blog');
 Route::get('/contact', 'FrontController@contact')->name('contact');
+Route::get('/ppdb', 'FrontController@ppdb')->name('ppdb');
 
 // Authentikasi
 Auth::routes();

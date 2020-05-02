@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PengumumanPpdb extends Model
 {
     protected $table = 'pengumuman_ppdb';
-    protected $fillable = ['no_ppdb', 'status'];
+    protected $fillable = ['no_ppdb', 'status', 'tahun_ajar_id'];
 
     public function data_ppdb()
     {

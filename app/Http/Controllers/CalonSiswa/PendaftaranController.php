@@ -9,7 +9,9 @@ use App\Http\Requests\DataSiswa1Request;
 use App\Http\Requests\DataSiswa2Request;
 use App\Http\Requests\DataSiswa3Request;
 use App\Jurusan;
+use App\KuotaJurusan;
 use App\PengumumanPpdb;
+use App\TahunAjaran;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -27,11 +29,12 @@ class PendaftaranController extends Controller
     {
         $dataPpdb = DataPpdb::where('user_id', auth()->user()->id)->first();
         $menu = $this->menu;
+        $tahun_ajaran = TahunAjaran::where('status', 'dibuka')->first();
 
         if ($dataPpdb) {
             return view('calon-siswa.pendaftaran-berhasil', compact('menu', 'dataPpdb'));
         }
-        return view('calon-siswa.pendaftaran', compact('menu'));
+        return view('calon-siswa.pendaftaran', compact('menu', 'tahun_ajaran'));
     }
 
     public function cetak()
@@ -56,8 +59,14 @@ class PendaftaranController extends Controller
     {
         $search = $request->search;
         $menu = $this->menu;
-        $pengumuman = PengumumanPpdb::where('no_ppdb', 'LIKE', "%$search%")->orderBy('id', 'ASC')->paginate(10);
-        return view('calon-siswa.list-pendaftar', compact('menu', 'pengumuman'));
+        $userPpdb = DataPpdb::where('user_id', auth()->user()->id)->first();
+        if (!$userPpdb) {
+            session()->flash('error', 'harus daftar terlebih dahulu');
+            return redirect()->route('calon-siswa.index');
+        }
+        $tahun_ajar = $userPpdb->tahun_ajar->id;
+        $pengumuman = PengumumanPpdb::where('no_ppdb', 'LIKE', "%$search%")->where('tahun_ajar_id', $tahun_ajar)->orderBy('id', 'ASC')->paginate(10);
+        return view('calon-siswa.list-pendaftar', compact('menu', 'pengumuman', 'userPpdb'));
     }
 
     public function pendaftaranStep2()
@@ -73,7 +82,7 @@ class PendaftaranController extends Controller
     public function pendaftaranStep3()
     {
         $menu = $this->menu;
-        $jurusan = Jurusan::orderBy('name', 'asc')->get();
+        $jurusan = KuotaJurusan::orderBy('id_jurusan', 'asc')->get();
 
         if (!session()->get('step3')) {
             return back()->withErrors('isi form data siswa terlebih dahulu');
@@ -86,6 +95,11 @@ class PendaftaranController extends Controller
     {
         $menu = $this->menu;
         $dataPpdb = DataPpdb::where('user_id', auth()->user()->id)->first();
+
+        if (!$dataPpdb) {
+            return redirect()->route('calon-siswa.index');
+        }
+
         return view('calon-siswa.pendaftaran-berhasil', compact('menu', 'dataPpdb'));
     }
 
@@ -93,6 +107,7 @@ class PendaftaranController extends Controller
     {
         $data = [
             'step2' => true,
+            'tahun_ajaran_id' => $request->tahun_ajaran_id,
             'nisn' => $request->nisn,
             'no_kk' => $request->no_kk,
             'nik_siswa' => $request->nik_siswa,
@@ -179,12 +194,14 @@ class PendaftaranController extends Controller
 
         $dataPengumuman = [];
         $dataPengumuman['no_ppdb']  = $no_ppdb;
+        $dataPengumuman['tahun_ajar_id']    = $ses->get('tahun_ajaran_id');
         $dataPengumuman['status']   = 'belum di verifikasi';
 
         PengumumanPpdb::create($dataPengumuman);
 
         $data = [];
         $data['user_id']            = auth()->user()->id;
+        $data['tahun_ajar_id']    = $ses->get('tahun_ajaran_id');
         $data['no_ppdb']            = $no_ppdb;
         $data['nisn']               = $ses->get('nisn');
         $data['no_kk']              = $ses->get('no_kk');

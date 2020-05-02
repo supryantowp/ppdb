@@ -43,6 +43,25 @@
                 <p>kamu belum melakukan pendaftaran</p>
 
                 @endif
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Jurusan</th>
+                            <th>Jumlah Daftar</th>
+                            <th>Kuota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($kuotaJurusan as $item)
+                        <tr>
+                            <td>{{$item->jurusan->name}}</td>
+                            <td>{{$item->kuota_jurusan()}}</td>
+                            <td>{{$item->kuota}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

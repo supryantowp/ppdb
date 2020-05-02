@@ -17,6 +17,13 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{asset('assets/front/style.css')}}">
 
+    <!--- Custome Style --->
+    <style>
+        .actives {
+            color: black !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -70,11 +77,12 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="{{url('/')}}">Home</a></li>
-                                <li><a href="{{route('materi')}}">Materi</a></li>
-                                <li><a href="{{route('guru')}}">Guru</a></li>
-                                <li><a href="{{route('blog')}}">Blog</a></li>
-                                <li><a href="{{route('contact')}}">Contact</a></li>
+                                @foreach ($menu as $item)
+                                @foreach ($item->sub_menu as $menu)
+                                <li><a class="{{Request::is($menu->url) ? 'actives' : null}}"
+                                        href="{{url($menu->url)}}">{{$menu->title}}</a></li>
+                                @endforeach
+                                @endforeach
                             </ul>
 
                             <!-- Search Button -->
@@ -88,7 +96,6 @@
                             @guest
                             <!-- Register / Login -->
                             <div class="register-login-area">
-                                <a href="{{route('register')}}" class="btn">Daftar</a>
                                 <a href="{{route('login')}}" class="btn active">Login</a>
                             </div>
 
@@ -195,6 +202,7 @@
     <script src="{{asset('assets/front/js/plugins/plugins.js')}}"></script>
     <!-- Active js -->
     <script src="{{asset('assets/front/js/active.js')}}"></script>
+
 </body>
 
 </html>

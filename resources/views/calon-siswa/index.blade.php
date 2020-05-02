@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@push('css')
+
+<!-- Sweet Alert --->
+<link rel="stylesheet" href="{{asset('assets/plugins/sweet-alert2/sweetalert2.min.css')}}">
+
+@endpush
+
 @section('title')
 <div class="row">
     <div class="col-sm-12">
@@ -38,3 +45,16 @@
     </div>
 </div>
 @endsection
+
+@push('javascript')
+<script src="{{asset('assets/plugins/sweet-alert2/sweetalert2.min.js')}}"></script>
+
+@if (Session::has('success'))
+<script>
+    Swal.fire("Berhasil!", "Silahkan tunggu informasi selanjutnya.", "success");
+</script>
+@endif
+
+@include('layouts.partial._alert')
+
+@endpush

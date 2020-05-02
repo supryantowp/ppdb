@@ -113,9 +113,9 @@
                                 class="form-control @error('jurusan_pilihan_pertama') is-invalid @enderror">
                                 <option value="">pilih</option>
                                 @foreach ($jurusan as $item)
-                                <option value="{{$item->name}}"
-                                    {{session()->get('jurusan_pilihan_pertama') || old('jurusan_pilihan_pertama')  == $item->name ? 'selected' : null }}>
-                                    {{$item->name}}</option>
+                                <option value="{{$item->id}}"
+                                    {{session()->get('jurusan_pilihan_pertama') || old('jurusan_pilihan_pertama')  == $item->id ? 'selected' : null }}>
+                                    {{$item->jurusan->name}}</option>
                                 @endforeach
                             </select>
                             @error('jurusan_pilihan_pertama')
@@ -133,9 +133,9 @@
                                 class="form-control jurusan_kedua @error('jurusan_pilihan_kedua') is-invalid @enderror">
                                 <option value="">pilih</option>
                                 @foreach ($jurusan as $item)
-                                <option value="{{$item->name}}"
-                                    {{session()->get('jurusan_pilihan_kedua') || old('jurusan_pilihan_kedua')  == $item->name ? 'selected' : null }}>
-                                    {{$item->name}}</option>
+                                <option value="{{$item->id}}"
+                                    {{session()->get('jurusan_pilihan_kedua') || old('jurusan_pilihan_kedua')  == $item->id ? 'selected' : null }}>
+                                    {{$item->jurusan->name}}</option>
                                 @endforeach
                             </select>
                             <p>tidak boleh dengan pilihan pertama</p>

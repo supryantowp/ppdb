@@ -19,6 +19,7 @@
                 <h4 class="mt-0 header-title">Hai, {{Str::title(Auth::user()->name)}} 👋🏻</h4>
                 <hr>
 
+                <p>{{$userPpdb->tahun_ajar->title}}</p>
                 <p class="text-muted m-b-30">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reiciendis laboriosam molestiae
                     tenetur natus tempore saepe at fugit hic! Unde.
@@ -57,8 +58,8 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->data_ppdb->nama_siswa}}</td>
                                 <td>{{$item->data_ppdb->asal_sekolah}}</td>
-                                <td>{{$item->data_ppdb->jurusan_pertama}}</td>
-                                <td>{{$item->data_ppdb->jurusan_kedua}}</td>
+                                <td>{{$item->data_ppdb->jurusan->name}}</td>
+                                <td>{{$item->data_ppdb->jurusan2->name}}</td>
                                 <td>
 
                                     @if ($item->status == 'belum di verifikasi')
