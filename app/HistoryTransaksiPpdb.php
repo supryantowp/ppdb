@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HistoryTransaksiPpdb extends Model
 {
-    protected $fillable = ['user_id', 'no_transaksi', 'sisa_bayar', 'status'];
+    protected $fillable = ['user_id', 'no_transaksi', 'sisa_bayar', 'status', 'bulan', 'tahun'];
 
     public function transaksi_ppdb()
     {

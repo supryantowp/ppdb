@@ -96,7 +96,9 @@ class PembayaranController extends Controller
             'no_transaksi'  => $no_transaksi,
             'user_id'       => auth()->user()->id,
             'sisa_bayar'    => $sisa_bayar,
-            'status'        => $status
+            'status'        => $status,
+            'bulan'         => date('M'),
+            'tahun'         => date('Y')
         ]);
 
         session()->flash('success', 'Sukses melakuka pembayaran');

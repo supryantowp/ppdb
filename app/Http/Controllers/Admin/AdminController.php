@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\AccessMenu;
+use App\HistoryTransaksiPpdb;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,7 @@ class AdminController extends Controller
     public function index()
     {
         $menu = $this->menu;
-        return view('admin.index', compact('menu'));
+        $ppdb = HistoryTransaksiPpdb::all();
+        return view('admin.index', compact('menu', 'ppdb'));
     }
 }
