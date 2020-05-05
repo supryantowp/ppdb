@@ -71,7 +71,7 @@ class PembayaranController extends Controller
     {
         $TransaksiPpdb = TransaksiPpdb::orderBy('created_at', 'DESC')->first();
         $id = !$TransaksiPpdb ? 0 : $TransaksiPpdb->id;
-        $no_transaksi = '#' . str_pad($id + 1, 4, "0", STR_PAD_LEFT);
+        $no_transaksi = 'no-transaksi-' . str_pad($id + 1, 4, "0", STR_PAD_LEFT);
 
         $file = $request->file('bukti_pembayaran');
         $nama_file = time() . "_" . $file->getClientOriginalName();
@@ -85,7 +85,9 @@ class PembayaranController extends Controller
             'jumlah_bayar'          => $request->jumlah_bayar,
             'yang_harus_dibayar'    => $request->yang_harus_dibayar,
             'bank_id'               => $request->bank_id,
-            'bukti_pembayaran'      => $nama_file
+            'bukti_pembayaran'      => $nama_file,
+            'bulan'         => date('M'),
+            'tahun'         => date('Y')
         ]);
 
         $sisa_bayar = $request->yang_harus_dibayar - $request->jumlah_bayar;
@@ -98,7 +100,8 @@ class PembayaranController extends Controller
             'sisa_bayar'    => $sisa_bayar,
             'status'        => $status,
             'bulan'         => date('M'),
-            'tahun'         => date('Y')
+            'tahun'         => date('Y'),
+            'keterangan'    => 'pending'
         ]);
 
         session()->flash('success', 'Sukses melakuka pembayaran');

@@ -8,7 +8,7 @@ class TransaksiPpdb extends Model
 {
     protected $table = 'transaksi_ppdb';
     protected $fillable = [
-        'no_transaksi', 'user_id', 'nama', 'jumlah_bayar', 'bank_id', 'bukti_pembayaran', 'yang_harus_dibayar'
+        'no_transaksi', 'user_id', 'nama', 'jumlah_bayar', 'bank_id', 'bukti_pembayaran', 'yang_harus_dibayar', 'bulan', 'tahun'
     ];
 
     public function showBuktiPembayaran()

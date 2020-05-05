@@ -17,4 +17,9 @@ class HistoryTransaksiPpdb extends Model
     {
         return 'Rp. ' . number_format($this->sisa_bayar);
     }
+
+    public function total()
+    {
+        return 'Rp. ' . $this->transaksi_ppdb->jumlah_bayar;
+    }
 }

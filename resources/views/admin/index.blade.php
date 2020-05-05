@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@push('css')
-<link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
-@endpush
-
 @section('title')
 <div class="row">
     <div class="col-sm-12">
@@ -14,16 +10,6 @@
                     Welcome {{Str::title(Auth::user()->name)}}
                 </li>
             </ol>
-            <div class="state-information d-none d-sm-block">
-                <div class="state-graph">
-                    <div id="header-chart-1"></div>
-                    <div class="info">Balance $ 2,317</div>
-                </div>
-                <div class="state-graph">
-                    <div id="header-chart-2"></div>
-                    <div class="info">Item Sold 1230</div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -94,15 +80,6 @@
             <div class="card-body">
                 <h4 class="mt-0 header-title">Keuangan</h4>
 
-                <div class="form-group">
-                    <label for="tahun">tahun : </label>
-                    <select name="tahun">
-                        <option value="">pilih</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                    </select>
-                </div>
-
                 <div class="row text-center m-t-20">
                     <div class="col-4">
                         <h5 class="">Rp. {{number_format(App\TransaksiPpdb::sum('jumlah_bayar'))}}</h5>
@@ -120,7 +97,15 @@
                     </div>
                 </div>
 
-                <div id="morris-area-example" class="dashboard-charts morris-charts"></div>
+                <div class="row">
+                    <div class=" col-sm-12">
+                        <h5 class="header-title">Perbulan</h5>
+                        <div style="width: 100%">
+                            {!! $dashboard->container() !!}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -133,30 +118,12 @@
 @endsection
 
 @push('javascript')
-<!--Morris Chart-->
-<script src="{{asset('assets/plugins/morris/morris.min.js')}}"></script>
-<script src="{{asset('assets/plugins/raphael/raphael-min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
-<script>
-    Morris.Bar({
-    element: 'morris-area-example',
-    data: [
-        { a: "January", ppdb: 45,},
-        { a: "February", ppdb: 75,},
-        { a: "March", ppdb: 100, },
-        { a: "April", ppdb: 75, },
-        { a: "May", ppdb: 100, },
-        { a: "June", ppdb: 75, },
-        { a: "July", ppdb: 50, },
-        { a: "August", ppdb: 75, },
-        { a: "September", ppdb: 50, },
-        { a: "October", ppdb: 75, },
-        { a: "November", ppdb: 100, },
-        { a: "December", ppdb: 80, }
-      ],
-    xkey: 'a',
-    ykeys: ['ppdb'],
-    labels: ['Ppdb', 'Spp']
-    });
-</script>
+@if($dashboard)
+{!! $dashboard->script() !!}
+@endif
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 @endpush

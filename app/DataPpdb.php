@@ -34,4 +34,9 @@ class DataPpdb extends Model
     {
         return $this->hasOne(Jurusan::class, 'id', 'jurusan_kedua');
     }
+
+    public function fotoSiswa()
+    {
+        return asset('data/images/calon_siswa' . '/' . $this->foto_siswa);
+    }
 }

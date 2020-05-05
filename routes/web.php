@@ -42,20 +42,21 @@ Route::middleware('auth')->group(function () {
     });
 
     // Admin
-    Route::namespace('Admin')->group(function () {
-        Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
-            Route::get('/', 'AdminController@index')->name('admin.index');
 
-            Route::prefix('setting')->group(function () {
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['role:admin']], function () {
+        Route::get('/', 'AdminController@index')->name('admin.index');
 
-                Route::prefix('menu')->group(function () {
-                    Route::namespace('Menu')->group(function () {
-                        Route::resource('access-menu', 'AccessMenuController');
-                        Route::resource('menu', 'MenuController');
-                        Route::resource('sub-menu', 'SubMenuController');
-                    });
-                });
-            });
+        Route::group(['prefix' => 'ppdb'], function () {
+            Route::get('/', 'PpdbController@index');
+            Route::resource('status', 'StatusController');
+            Route::resource('konfirmasi', 'PpdbPendaftaranController');
+            Route::resource('pembayaran', 'PpdbPembayaranController');
+        });
+
+        Route::group(['prefix' => 'setting/menu', 'namespace' => 'Menu'], function () {
+            Route::resource('access-menu', 'AccessMenuController');
+            Route::resource('menu', 'MenuController');
+            Route::resource('sub-menu', 'SubMenuController');
         });
     });
 });

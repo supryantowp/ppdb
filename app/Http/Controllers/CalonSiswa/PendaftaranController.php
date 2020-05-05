@@ -184,7 +184,7 @@ class PendaftaranController extends Controller
 
         $id = !$latestPpdb ? 0 : $latestPpdb->id;
 
-        $no_ppdb = '#' . str_pad($id + 1, 4, "0", STR_PAD_LEFT);
+        $no_ppdb = 'ppdb-' . str_pad($id + 1, 4, "0", STR_PAD_LEFT);
 
         $file = $request->file('foto_siswa');
         $nama_file = time() . "_" . $file->getClientOriginalName();
