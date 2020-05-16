@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@push('css')
+<!-- Magnific popup -->
+<link href="{{asset('assets/plugins/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css">
+@endpush
+
 @section('title')
 <div class="row">
     <div class="col-sm-12">
@@ -32,6 +37,7 @@
                                 <th>Status</th>
                                 <th>Keterangan</th>
                                 <th>Waktu</th>
+                                <th>Bukti</th>
                                 <th>Pilihan</th>
                             </tr>
                         </thead>
@@ -55,6 +61,14 @@
                                     @endif
                                 </td>
                                 <td>{{$transaksi->created_at->diffForHumans()}}</td>
+                                <td>
+                                    <a class="image-popup-vertical-fit"
+                                        href="{{$transaksi->transaksi_ppdb->showBuktiPembayaran()}}"
+                                        title="{{$transaksi->no_transaksi  . ' ' . $transaksi->transaksi_ppdb->nama}}.">
+                                        <img class="img-fluid" alt=""
+                                            src="{{$transaksi->transaksi_ppdb->showBuktiPembayaran()}}" width="145">
+                                    </a>
+                                </td>
                                 <td>
                                     <div class="d-flex">
                                         <a href="{{route('pembayaran.show', ['pembayaran' => $transaksi->id])}}"
@@ -95,5 +109,19 @@
 @push('javascript')
 @include('layouts.partial._datatable')
 
+<!-- Magnific popup -->
+<script src="{{asset('assets/plugins/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+
+<script>
+    $('.image-popup-vertical-fit').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		mainClass: 'mfp-img-mobile',
+		image: {
+			verticalFit: true
+		}
+
+	});
+</script>
 
 @endpush

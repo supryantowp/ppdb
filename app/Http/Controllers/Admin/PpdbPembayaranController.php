@@ -59,7 +59,10 @@ class PpdbPembayaranController extends Controller
      */
     public function show($id)
     {
-        //
+        $menu = $this->menu;
+        $transaksi = HistoryTransaksiPpdb::whereId($id)->first();
+
+        return view('admin.ppdb.pembayaran.show', compact('menu', 'transaksi'));
     }
 
     /**
