@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\AccessMenu;
+use App\Models\AccessMenu;
 use App\Charts\Dashboard;
 use App\Http\Controllers\Controller;
-use App\PengumumanPpdb;
+use App\Models\PengumumanPpdb;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\AccessMenu;
-use App\Bulan;
+use App\Models\AccessMenu;
+use App\Models\Bulan;
 use App\Charts\Dashboard;
-use App\HistoryTransaksiPpdb;
+use App\Models\HistoryTransaksiPpdb;
 use App\Http\Controllers\Controller;
-use App\TransaksiPpdb;
+use App\Models\TransaksiPpdb;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller

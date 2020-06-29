@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class HistoryTransaksiPpdb extends Model
 {
-    protected $fillable = ['user_id', 'no_transaksi', 'sisa_bayar', 'status', 'bulan', 'tahun'];
+    protected $fillable = ['user_id', 'no_transaksi', 'sisa_bayar', 'status', 'bulan', 'tahun', 'keterangan'];
 
     public function transaksi_ppdb()
     {

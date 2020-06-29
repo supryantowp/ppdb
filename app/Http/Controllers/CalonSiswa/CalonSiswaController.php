@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\CalonSiswa;
 
-use App\AccessMenu;
-use App\DataPpdb;
+use App\Models\AccessMenu;
+use App\Models\DataPpdb;
 use App\Http\Controllers\Controller;
-use App\KuotaJurusan;
-use App\PengumumanPpdb;
+use App\Models\KuotaJurusan;
+use App\Models\DataPpdb as ModelsDataPpdb;
+use App\Models\PengumumanPpdb;
 use Illuminate\Http\Request;
 
 class CalonSiswaController extends Controller
@@ -22,7 +23,7 @@ class CalonSiswaController extends Controller
     public function index()
     {
         $menu = $this->menu;
-        $hasDaftar = DataPpdb::where('user_id', auth()->user()->id)->count();
+        $hasDaftar = ModelsDataPpdb::where('user_id', auth()->user()->id)->count();
         return view('calon-siswa.index', compact('menu', 'hasDaftar'));
     }
 

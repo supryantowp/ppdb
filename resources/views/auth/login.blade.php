@@ -54,14 +54,6 @@
                     </div>
                 </div>
 
-                <div class="form-group m-t-10 mb-0 row">
-                    <div class="col-12 m-t-20">
-                        <a href="{{url('password/reset')}}" class="text-muted"><i class="mdi mdi-lock"></i> Lupa
-                            password
-                            ?</a>
-                    </div>
-                </div>
-
             </form>
         </div>
 

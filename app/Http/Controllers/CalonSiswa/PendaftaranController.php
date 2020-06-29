@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\CalonSiswa;
 
-use App\AccessMenu;
-use App\DataPpdb;
+use App\Models\AccessMenu;
+use App\Models\DataPpdb;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DataSiswa1Request;
 use App\Http\Requests\DataSiswa2Request;
 use App\Http\Requests\DataSiswa3Request;
-use App\Jurusan;
-use App\KuotaJurusan;
-use App\PengumumanPpdb;
-use App\TahunAjaran;
+use App\Models\Jurusan;
+use App\Models\KuotaJurusan;
+use App\Models\PengumumanPpdb;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -34,13 +34,14 @@ class PendaftaranController extends Controller
         if ($dataPpdb) {
             return view('calon-siswa.pendaftaran-berhasil', compact('menu', 'dataPpdb'));
         }
-        return view('calon-siswa.pendaftaran', compact('menu', 'tahun_ajaran'));
+
+        return view('calon-siswa.pendaftaran.index', compact('menu', 'tahun_ajaran'));
     }
 
     public function cetak()
     {
         $dataPpdb = $dataPpdb = DataPpdb::where('user_id', auth()->user()->id)->first();
-        $pdf = PDF::loadview('calon-siswa.cetak-pendaftaran', ['dataPpdb' => $dataPpdb]);
+        $pdf = PDF::loadview('calon-siswa.cetak.pendaftaran', ['dataPpdb' => $dataPpdb]);
         return $pdf->download('data pendaftaran ' . $dataPpdb->nama_siswa);
     }
 
@@ -51,7 +52,7 @@ class PendaftaranController extends Controller
             session()->flash('error', 'pendaftaran kamu belum di verifikasi');
             return redirect()->back();
         }
-        $pdf = PDF::loadview('calon-siswa.cetak-kelulusan', ['pengumuman' => $pengumuman]);
+        $pdf = PDF::loadview('calon-siswa.cetak.kelulusan', ['pengumuman' => $pengumuman]);
         return $pdf->download('data kelulusan ' . $pengumuman->data_ppdb->nama_siswa);
     }
 
@@ -66,7 +67,7 @@ class PendaftaranController extends Controller
         }
         $tahun_ajar = $userPpdb->tahun_ajar->id;
         $pengumuman = PengumumanPpdb::where('no_ppdb', 'LIKE', "%$search%")->where('tahun_ajar_id', $tahun_ajar)->orderBy('id', 'ASC')->paginate(10);
-        return view('calon-siswa.list-pendaftar', compact('menu', 'pengumuman', 'userPpdb'));
+        return view('calon-siswa.pendaftaran.list-pendaftar', compact('menu', 'pengumuman', 'userPpdb'));
     }
 
     public function pendaftaranStep2()
@@ -76,7 +77,7 @@ class PendaftaranController extends Controller
             return back()->withErrors('isi form data siswa terlebih dahulu');
         }
 
-        return view('calon-siswa.pendaftaran-step-2', compact('menu'));
+        return view('calon-siswa.pendaftaran.step-2', compact('menu'));
     }
 
     public function pendaftaranStep3()
@@ -88,7 +89,7 @@ class PendaftaranController extends Controller
             return back()->withErrors('isi form data siswa terlebih dahulu');
         }
 
-        return view('calon-siswa.pendaftaran-step-3', compact('jurusan', 'menu'));
+        return view('calon-siswa.pendaftaran.step-3', compact('jurusan', 'menu'));
     }
 
     public function berhasil()
@@ -100,7 +101,7 @@ class PendaftaranController extends Controller
             return redirect()->route('calon-siswa.index');
         }
 
-        return view('calon-siswa.pendaftaran-berhasil', compact('menu', 'dataPpdb'));
+        return view('calon-siswa.pendaftaran.berhasil', compact('menu', 'dataPpdb'));
     }
 
     public function dataSiswa1(DataSiswa1Request $request)

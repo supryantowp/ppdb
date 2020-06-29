@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\AccessMenu;
-use App\DataPpdb;
+use App\Models\AccessMenu;
+use App\Models\DataPpdb;
 use App\Http\Controllers\Controller;
-use App\PengumumanPpdb;
+use App\Models\PengumumanPpdb;
 use Illuminate\Http\Request;
 
 class PpdbPendaftaranController extends Controller

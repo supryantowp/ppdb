@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\CalonSiswa;
 
-use App\AccessMenu;
-use App\Bank;
-use App\HargaPpdb;
-use App\HistoryTransaksiPpdb;
+use App\Models\AccessMenu;
+use App\Models\Bank;
+use App\Models\HargaPpdb;
+use App\Models\HistoryTransaksiPpdb;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TransaksiPpdbRequest;
-use App\TransaksiPpdb;
+use App\Models\TransaksiPpdb;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
@@ -28,7 +28,7 @@ class PembayaranController extends Controller
         $banks = Bank::all();
         $historis = HistoryTransaksiPpdb::where('user_id', auth()->user()->id)->get();
 
-        return view('calon-siswa.pembayaran', compact('menu', 'banks', 'historis'));
+        return view('calon-siswa.pembayaran.index', compact('menu', 'banks', 'historis'));
     }
 
     public function konfirmasi()
@@ -42,7 +42,7 @@ class PembayaranController extends Controller
 
         $sisa_yang_harus_dibayar =  $harga - $transaksiUser;
 
-        return view('calon-siswa.pembayaran-konfirmasi', compact('menu', 'banks', 'hargaPpdb', 'sisa_yang_harus_dibayar'));
+        return view('calon-siswa.pembayaran.konfirmasi', compact('menu', 'banks', 'hargaPpdb', 'sisa_yang_harus_dibayar'));
     }
 
     public function detailPembayaran($id)
@@ -50,20 +50,20 @@ class PembayaranController extends Controller
         $menu = $this->menu;
         $histori = HistoryTransaksiPpdb::whereId($id)->first();
 
-        return view('calon-siswa.pembayaran-detail', compact('menu', 'histori'));
+        return view('calon-siswa.pembayaran.detail', compact('menu', 'histori'));
     }
 
     public function cetak($id)
     {
         $histori = HistoryTransaksiPpdb::whereId($id)->first();
-        $pdf = PDF::loadview('calon-siswa.cetak-pembayaran', ['histori' => $histori]);
+        $pdf = PDF::loadview('calon-siswa.cetak.pembayaran', ['histori' => $histori]);
         return $pdf->download('laporan-pdf transaksi ' . $histori->no_transaksi);
     }
 
     public function cetakSemua()
     {
         $historis = HistoryTransaksiPpdb::where('user_id', auth()->user()->id)->get();
-        $pdf = PDF::loadview('calon-siswa.cetak-pembayaran-all', ['historis' => $historis]);
+        $pdf = PDF::loadview('calon-siswa.cetak.pembayaran-all', ['historis' => $historis]);
         return $pdf->download('laporan-pdf transaksi semua');
     }
 

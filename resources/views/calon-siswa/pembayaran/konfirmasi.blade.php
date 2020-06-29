@@ -27,7 +27,7 @@
 
                 <p>Isi form dibawah masukan data yang sesuai</p>
 
-                <form action="{{route('pembayaran.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('pembayaran.store-siswa')}}" method="post" enctype="multipart/form-data">
 
                     @csrf
 
@@ -60,8 +60,6 @@
                                 <option value="2000000">Rp 2.000.000</option>
                                 <option value="2500000">Rp 2.500.000</option>
                                 <option value="3000000">Rp 3.000.000</option>
-                                <option value="3500000">Rp 3.500.000</option>
-                                <option value="4000000">Rp 4.000.000</option>
                             </select>
                             @error('jumlah_bayar')
                             <span class="feedback" role="alert">

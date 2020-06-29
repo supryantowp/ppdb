@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\AccessMenu;
-use App\HistoryTransaksiPpdb;
+use App\Models\AccessMenu;
+use App\Models\HistoryTransaksiPpdb;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

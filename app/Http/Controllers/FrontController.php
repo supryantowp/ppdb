@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\AccessMenu;
-use App\TahunAjaran;
+use App\Models\AccessMenu;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller

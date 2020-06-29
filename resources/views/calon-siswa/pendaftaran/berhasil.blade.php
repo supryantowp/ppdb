@@ -45,7 +45,7 @@
                     <div class="card mb-1">
                         <div class="card-header p-3" id="headingOne">
                             <h6 class="m-0 font-14">
-                                <a href="#collapseOne" class="text-dark" data-toggle="collapse" aria-expanded="true"
+                                <a href="#collapseOne" class="text-white" data-toggle="collapse" aria-expanded="true"
                                     aria-controls="collapseOne">
                                     Data Siswa #1
                                 </a>
@@ -81,7 +81,7 @@
                     <div class="card mb-1">
                         <div class="card-header p-3" id="headingTwo">
                             <h6 class="m-0 font-14">
-                                <a href="#collapseTwo" class="text-dark collapsed" data-toggle="collapse"
+                                <a href="#collapseTwo" class="text-white collapsed" data-toggle="collapse"
                                     aria-expanded="false" aria-controls="collapseTwo">
                                     Data Orang Tua #2
                                 </a>
@@ -115,7 +115,7 @@
                     <div class="card mb-1">
                         <div class="card-header p-3" id="headingThree">
                             <h6 class="m-0 font-14">
-                                <a href="#collapseThree" class="text-dark collapsed" data-toggle="collapse"
+                                <a href="#collapseThree" class="text-white collapsed" data-toggle="collapse"
                                     aria-expanded="false" aria-controls="collapseThree">
                                     Data Sekolah #3
                                 </a>

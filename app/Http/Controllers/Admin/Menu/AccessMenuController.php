@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Menu;
 
-use App\AccessMenu;
+use App\Models\AccessMenu;
 use App\Http\Controllers\Controller;
-use App\Menu;
-use App\Role;
+use App\Models\Menu;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class AccessMenuController extends Controller
