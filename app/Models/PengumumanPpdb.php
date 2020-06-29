@@ -11,6 +11,6 @@ class PengumumanPpdb extends Model
 
     public function data_ppdb()
     {
-        return $this->hasOne('App\DataPpdb', 'no_ppdb', 'no_ppdb');
+        return $this->hasOne(DataPpdb::class, 'no_ppdb', 'no_ppdb');
     }
 }

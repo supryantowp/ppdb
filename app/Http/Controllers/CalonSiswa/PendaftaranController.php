@@ -32,7 +32,7 @@ class PendaftaranController extends Controller
         $tahun_ajaran = TahunAjaran::where('status', 'dibuka')->first();
 
         if ($dataPpdb) {
-            return view('calon-siswa.pendaftaran-berhasil', compact('menu', 'dataPpdb'));
+            return view('calon-siswa.pendaftaran.berhasil', compact('menu', 'dataPpdb'));
         }
 
         return view('calon-siswa.pendaftaran.index', compact('menu', 'tahun_ajaran'));

@@ -23,6 +23,9 @@
                 <h4 class="mt-0 header-title">Hai, {{Str::title(Auth::user()->name)}} 👋🏻</h4>
                 <hr>
 
+                @if ($sisa_yang_harus_dibayar == 0)
+                lunas
+                @else
                 <p class="text-danger">Total yang harus di bayar <strong>{{$hargaPpdb->fmtHarga()}}</strong></p>
 
                 <p>Isi form dibawah masukan data yang sesuai</p>
@@ -109,6 +112,7 @@
                     </div>
                 </form>
             </div>
+            @endif
         </div>
     </div>
 </div>
